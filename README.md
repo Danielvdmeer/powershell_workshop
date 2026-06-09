@@ -1,4 +1,4 @@
-# 🚀 Infraworkz Powershell Workshop
+# 🚀 Infraworkz PowerShell Workshop
  
 ## 🎯 Workshop Overview
 
@@ -9,7 +9,7 @@
 
 ## 🛠️ Prerequisites
 Click the links below to install the required tools for this workshop:
-* **[PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest)**: The cross-platform automation engine. It is OS-independent, meaning the scripts you write will run consistently on Windows, Linux, and macOS.
+* **[PowerShell 7](https://github.com/Powershell/Powershell/releases/latest)**: The cross-platform automation engine. It is OS-independent, meaning the scripts you write will run consistently on Windows, Linux, and macOS.
 * **[VS Code](https://code.visualstudio.com/download)**: The recommended editor for this workshop. It provides a robust environment for writing, testing, and managing your PowerShell scripts and projects.
 
 ## 📂 Repository Structure
@@ -20,6 +20,7 @@ Click the links below to install the required tools for this workshop:
 ## 📥 Getting started
 
 To get started follow these steps
-1. Click the green ***Code*** button at the right top of this page.
+1. Click the green ***Code*** button at the top-right of this page.
 2. Select ***Download ZIP***. 
-3. Extract the files and open them in VS Code.
+3. Extract the files to a folder on your computer.
+4. Open VS Code, go to **File > Open Folder...** and select the folder you just extracted.
