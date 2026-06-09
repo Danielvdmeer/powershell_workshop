@@ -41,7 +41,7 @@ In the previous step, you used `[string]` for the `$Name` parameter. Now, lets a
 * Update your `param()` block to look like this:
 ```PowerShell
 param (
-        [Parameter(Mandatory=$true)]
+        [parameter(Mandatory=$true)]
         [string]$Name,
         [int]$Age
     )

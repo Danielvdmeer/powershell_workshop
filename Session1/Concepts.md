@@ -67,10 +67,10 @@ When building output in PowerShell, you will encounter three ways to combine tex
 * **String Formatting:**
 
     You use placeholders (like {0}, {1}) and define the values afterwards using the `-f` operator.
-        * **Example:** `Write-Host ("Hello, {0}!" -f $Name)`
-        * **Verdict:** Very useful for complex or large outputs, but it can make simple lines harder to read. Use this if you have many variables to manage in one sentence.
+    * **Example:** `Write-Host ("Hello, {0}!" -f $Name)`
+    * **Verdict:** Very useful for complex or large outputs, but it can make simple lines harder to read. Use this if you have many variables to manage in one sentence.
 * **String Concatenation (Avoid):**
 
     You "glue" different parts together using a plus sign ( + ).
-    * **Example:** `Write-Host "Hello, " + $Name + "!"`
+    * **Example:** `Write-Host ("Hello, " + $Name + "!")`
     * **Verdict:** Considered bad practice. It is error-prone (e.g., forgetting a space) and less efficient. Stick to Interpolation whenever possible.
