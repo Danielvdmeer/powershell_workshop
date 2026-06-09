@@ -5,10 +5,10 @@ This file contains the core concepts and explanations for the topics covered in 
 Use this document as a reference guide while working through your exercises to understand the "why" behind the code.
 
 ## Windows PowerShell vs. PowerShell
-* **Windows Powershell (v1.0 - v5.1)** Built on the older .NET Framework. It is exclusive to Windows and is no longer actively developed, though it remains pre-installed on every Windows system for legacy compatibility.
-* **Powershell (v6.0+)** Formerly known as "PowerShell Core." This is the modern, open-source version built on .NET. It is cross-platform (runs on Windows, macOS, and Linux) and receives all new features and performance improvements.
+* **Windows PowerShell (v1.0 - v5.1)** Built on the older .NET Framework. It is exclusive to Windows and is no longer actively developed, though it remains pre-installed on every Windows system for legacy compatibility.
+* **PowerShell (v6.0+)** Formerly known as "PowerShell Core." This is the modern, open-source version built on .NET. It is cross-platform (runs on Windows, macOS, and Linux) and receives all new features and performance improvements.
 
-**Summary:** Windows Powershell is the legacy version; Powershell is the current, active standard. 
+**Summary:** Windows PowerShell is the legacy version; PowerShell is the current, active standard. 
 
 ## What are functions?
 A function is a named block of code designed to perform a specific task. Instead of writing the same instructions repeatedly, you define them once in a function and call them by name whenever needed.
@@ -54,3 +54,23 @@ Data types define the "nature" of the information your function processes. By sp
 
 **Why define types?**
 If you tell PowerShell a parameter must be an `[int]`, it will automatically reject any text input. This "type safety" prevents bugs and makes your code much more reliable for other users.
+
+## Handling Strings
+
+When building output in PowerShell, you will encounter three ways to combine text and variables. Using the right method keeps your scripts readable and prevents bugs.
+
+* **String Interpolation (Recommended):**
+
+    You include the variable directly inside the double-quoted string. PowerShell automatically replaces it with the value. 
+    * **Example:** `Write-Host "Hello, $Name!"`
+    * **Verdict:** This is the clean, standard and preferred way to write strings in PowerShell.
+* **String Formatting:**
+
+    You use placeholders (like {0}, {1}) and define the values afterwards using the `-f` operator.
+        * **Example:** `Write-Host ("Hello, {0}!" -f $Name)`
+        * **Verdict:** Very useful for complex or large outputs, but it can make simple lines harder to read. Use this if you have many variables to manage in one sentence.
+* **String Concatenation (Avoid):**
+
+    You "glue" different parts together using a plus sign ( + ).
+    * **Example:** `Write-Host "Hello, " + $Name + "!"`
+    * **Verdict:** Considered bad practice. It is error-prone (e.g., forgetting a space) and less efficient. Stick to Interpolation whenever possible.
