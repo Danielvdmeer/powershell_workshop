@@ -11,11 +11,13 @@
 Click the links below to install the required tools for this workshop:
 * **[PowerShell 7](https://github.com/PowerShell/PowerShell/releases/latest)**: The cross-platform automation engine. It is OS-independent, meaning the scripts you write will run consistently on Windows, Linux, and macOS.
 * **[VS Code](https://code.visualstudio.com/download)**: The recommended editor for this workshop. It provides a robust environment for writing, testing, and managing your PowerShell scripts and projects.
+* **[PowerShell Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)**: Required to run and debug PowerShell scripts directly inside VS Code.
 
 ## 📂 Repository Structure
 
 * `Exercises.md` (Assignments)
 * `Concepts.md` (Theory & Core Principles)
+* `*.ps1` (Solution script)
 
 ## 📥 Getting started
 
