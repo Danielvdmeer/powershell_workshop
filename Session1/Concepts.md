@@ -29,7 +29,7 @@ This ensures that your code remains isolated and will never conflict with future
 ## What are variables?
 Variables are like labeled placeholders used to store data in your computer's memory so you can use or change it later in your script.
 
-* **The Syntax:** In PowerShell, all variables start with a dollar sign (`$`), such as `$Name` or `$Age`.
+* **The Syntax:** In PowerShell, all variables start with a dollar sign (`$`), such as `$name` or `$age`.
 * **Storing Data:** You use the assignment operator (`=`) to put a value into a variable: `$ServerName = "Production-01"`.
 * **Flexibility:** Because they are variables, their contents can change during the execution of your script. 
 * **Recall:** Once a value is stored, you can refer to that container by its name anywhere else in your code.
@@ -62,15 +62,15 @@ When building output in PowerShell, you will encounter three ways to combine tex
 * **String Interpolation (Recommended):**
 
     You include the variable directly inside the double-quoted string. PowerShell automatically replaces it with the value. 
-    * **Example:** `Write-Host "Hello, $Name!"`
+    * **Example:** `Write-Host "Hello, $name!"`
     * **Verdict:** This is the clean, standard and preferred way to write strings in PowerShell.
 * **String Formatting:**
 
     You use placeholders (like {0}, {1}) and define the values afterwards using the `-f` operator.
-    * **Example:** `Write-Host ("Hello, {0}!" -f $Name)`
+    * **Example:** `Write-Host ("Hello, {0}!" -f $name)`
     * **Verdict:** Very useful for complex or large outputs, but it can make simple lines harder to read. Use this if you have many variables to manage in one sentence.
 * **String Concatenation (Avoid):**
 
     You "glue" different parts together using a plus sign ( + ).
-    * **Example:** `Write-Host ("Hello, " + $Name + "!")`
+    * **Example:** `Write-Host ("Hello, " + $name + "!")`
     * **Verdict:** Considered bad practice. It is error-prone (e.g., forgetting a space) and less efficient. Stick to Interpolation whenever possible.

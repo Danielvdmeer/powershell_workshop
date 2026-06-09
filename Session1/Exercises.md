@@ -23,30 +23,57 @@ Now let's make the function dynamic. Modify your function to look like this:
 function Get-INFGreeting {
     param (
         [parameter(Mandatory=$true)]
-        [string]$Name
+        [string]$name
     )
 
-    Write-Host "Hello, $Name!"
+    Write-Host "Hello, $name!"
 }
 ```
 * What changed?
     * The `param()` block tells PowerShell to expect input. 
     * `[parameter(Mandatory=$true)]` forces the user to provide a value.
-    * `$Name` is the variable that stores the input you provide.
-* **Test it:** Run the updated function. Now type Get-INFGreeting without any extra info. PowerShell will prompt you to enter the value for `$Name`.
+    * `$name` is the variable that stores the input you provide.
+* **Test it:** Run the updated function. Now type Get-INFGreeting without any extra info. PowerShell will prompt you to enter the value for `$name`.
 * **Try this as well:** `Get-INFGreeting -Name "YourName"`
 
-## 4. Protect your function with Type Safety
-In the previous step, you used `[string]` for the `$Name` parameter. Now, lets add an `$Age` parameter to your function.
-* Update your `param()` block to look like this:
+## 4. Add a parameter without a type
 ```PowerShell
 param (
-        [parameter(Mandatory=$true)]
-        [string]$Name,
-        [int]$Age
-    )
+    [parameter(Mandatory=$true)]
+    [string]$name,
+    $age          # no type defined
+)
 ```
-* **Update your `Write-Host` line to:** `"Hello, $Name! You are $Age years old."`
-* **Test it: Run the function with a valid number:** `Get-INFGreeting -Name "YourName" -Age 30`
-* **The Experiment:** Now try to run it with a word instead of a number: `Get-INFGreeting -Name "YourName" -Age "Thirty"`
-* **What happened?** You will see that PowerShell automatically throws an error because the input for `$Age` was not an integer. This is **Type Safety** in action. It prevents your script from breaking by ensuring the data type is correct.
+
+Update `Write-Host` to: `"Hello, $name! You are $age years old."`
+
+* **Test it:** `Get-INFGreeting -Name "John" -Age "Thirty"` It works. No error.
+* **Test it:** `Get-INFGreeting -Name "John" -Age "30"` also works.
+* **What's the problem?** PowerShell accepted the "Thirty" where a number was expected. Nothing stopped the wrong data from getting in.
+
+## 5. Protect your function with Type Safety
+Now add `[int]` to `$age`:
+```PowerShell
+param (
+    [parameter(Mandatory=$true)]
+    [string]$name,
+    [int]$age
+)
+```
+* **Test it again:** `Get-INFGreeting -Name "John" -Age "Thirty"` PowerShell now throws an error immediately.
+* **What changed?** You told PowerShell exactly what kind of data to expect. Now it enforces that for you.
+
+## Final result
+Your completed function should look like this:
+
+```PowerShell
+function Get-INFGreeting {
+    param (
+        [parameter(Mandatory=$true)]
+        [string]$name,
+        [int]$age
+    )
+
+    Write-Host "Hello, $name! You are $age years old."
+}
+```
