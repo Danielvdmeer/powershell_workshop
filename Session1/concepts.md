@@ -22,7 +22,7 @@ PowerShell has a vast library of built-in commands (cmdlets). To prevent your cu
 
 * **The Verb-Noun Standard:** PowerShell uses a `Verb-Noun` naming convention (e.g., `Get-Service`). 
 * **Custom Prefixing:** Add a unique identifier (like your organization or project initials) to the noun. 
-* **Example:** Instead of `Get-Date`, use `Get-InfDate`.
+* **Example:** Instead of `Get-Date`, use `Get-INFDate`.
 
 This ensures that your code remains isolated and will never conflict with future updates to PowerShell or other installed modules.
 

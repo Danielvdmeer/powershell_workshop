@@ -9,12 +9,12 @@
 Type (don't copy!) the following code into your file:
 
 ```Powershell
-Function Get-InfGreeting {
+Function Get-INFGreeting {
     Write-host "Hello"
 }
 ```
 
-Run the function you just created, after you created it type `Get-InfGreeting` in your terminal and see what it returns
+Run the function you just created, after you created it type `Get-INFGreeting` in your terminal and see what it returns
 
 ## 3. Add the parameter
 Now modify your function to accept a name
@@ -24,5 +24,5 @@ Now modify your function to accept a name
 
 ## 4. Test your code
 * Click the ***'Play'*** button on top or press ***F5*** to run your code
-* In the terminal run your function: `Get-InfGreeting -Name "YourName"`
+* In the terminal run your function: `Get-INFGreeting -Name "YourName"`
 * **Challenge:** Can you add a second parameter called `[int]$age` and print it as well?
