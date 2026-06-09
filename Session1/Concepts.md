@@ -26,11 +26,13 @@ PowerShell has a vast library of built-in commands (cmdlets). To prevent your cu
 
 This ensures that your code remains isolated and will never conflict with future updates to PowerShell or other installed modules.
 
+> See the full list of [approved verbs](https://learn.microsoft.com/en-us/powershell/scripting/developer/cmdlet/approved-verbs-for-windows-powershell-commands?view=powershell-7.6) on the Microsoft documentation site.
+
 ## What are variables?
 Variables are like labeled placeholders used to store data in your computer's memory so you can use or change it later in your script.
 
 * **The Syntax:** In PowerShell, all variables start with a dollar sign (`$`), such as `$name` or `$age`.
-* **Storing Data:** You use the assignment operator (`=`) to put a value into a variable: `$ServerName = "Production-01"`.
+* **Storing Data:** You use the assignment operator (`=`) to put a value into a variable: `$serverName = "Production-01"`.
 * **Flexibility:** Because they are variables, their contents can change during the execution of your script. 
 * **Recall:** Once a value is stored, you can refer to that container by its name anywhere else in your code.
 
@@ -39,9 +41,11 @@ Think of variables as a way to give a name to a piece of information, making you
 ## What are parameters?
 Parameters are the input mechanism for your functions. They allow you to pass data into a function, making it dynamic and reusable rather than static.
 
-* **The `param()` block:** This is the entry point of your function where all inputs are defined.
+* **The `param()` block:** This is where all inputs are defined at the top of your function.
 * **Flexibility:** Without parameters, a function does exactly the same thing every time. With parameters, you can feed it different data (like a name, a path, or a number) and the function adapts its output accordingly.
 * **The "Contract":** Think of parameters as a contract between the function and the user: "If you want me to run, you must provide me with this specific information."
+* **Mandatory parameters:** Adding `[Parameter(Mandatory=$true)]` above a parameter forces the caller to provide a value. PowerShell will prompt for it if it is omitted. This applies only to the parameter directly below it — repeat it for every parameter you want to make mandatory.
+* **Optional parameters:** A parameter without `[Parameter(Mandatory=$true)]` is optional. You can give it a default value with `$name = "World"`, which is used when the caller provides nothing.
 
 ## Common data types
 
