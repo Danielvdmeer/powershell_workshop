@@ -17,7 +17,16 @@ function Get-INFGreeting {
 Once saved, type `Get-INFGreeting` in your terminal to run it and see what it returns.
 
 ## 3. Add a mandatory parameter
-Now let's make the function dynamic. Modify your function to look like this:
+Now let's make the function dynamic. Try modifying your function so that it requires the caller to provide a `$name`, and uses that value in the greeting (e.g. `Hello, <name>!`).
+
+**Hints:**
+* You'll need a `param()` block.
+* There's an attribute you can add above a parameter to make it required.
+
+Try it yourself first, then check the solution below.
+
+<details>
+<summary>Click to reveal the solution</summary>
 
 ```PowerShell
 function Get-INFGreeting {
@@ -29,10 +38,14 @@ function Get-INFGreeting {
     Write-Host "Hello, $name!"
 }
 ```
+</details>
+<br>
+
 * What changed?
     * The `param()` block tells PowerShell to expect input. 
     * `[parameter(Mandatory=$true)]` forces the user to provide a value. **Important:** this applies only to the parameter directly below it — you need to add it individually for each parameter you want to make mandatory.
     * `$name` is the variable that stores the input you provide.
+
 * **Test it:** Run the updated function. Now type Get-INFGreeting without any extra info. PowerShell will prompt you to enter the value for `$name`.
 * **Try this as well:** `Get-INFGreeting -Name "YourName"`
 
@@ -50,10 +63,21 @@ Update `Write-Host` to: `"Hello, $name! You are $age years old."`
 
 * **Test it:** `Get-INFGreeting -Name "John" -Age "Thirty"` It works. No error.
 * **Test it:** `Get-INFGreeting -Name "John" -Age "30"` also works.
-* **What's the problem?** PowerShell accepted the "Thirty" where a number was expected. Nothing stopped the wrong data from getting in.
+* **What's the problem?** Do you know what's wrong here?
+
+<details>
+<summary>Click to reveal the answer</summary>
+
+PowerShell accepted "Thirty" where a number was expected. Nothing stopped the wrong data from getting in.
+
+</details>
 
 ## 5. Protect your function with Type Safety
-Now add `[Parameter(Mandatory=$true)]` and `[int]` to `$age`:
+Now that you know what's wrong, can you fix it? Apply the same approach you used for `$name` to make `$age` mandatory and give it the correct type.
+
+<details>
+<summary>Click to reveal the solution</summary>
+
 ```PowerShell
 param (
     [parameter(Mandatory=$true)]
@@ -62,11 +86,18 @@ param (
     [int]$age
 )
 ```
+
+</details>
+<br>
+
 * **Test it again:** `Get-INFGreeting -Name "John" -Age "Thirty"` PowerShell now throws an error immediately.
 * **What changed?** You told PowerShell exactly what kind of data to expect. Now it enforces that for you.
 
 ## Final result
 Your completed function should look like this:
+
+<details>
+<summary>Click to reveal the final result</summary>
 
 ```PowerShell
 function Get-INFGreeting {
@@ -80,3 +111,5 @@ function Get-INFGreeting {
     Write-Host "Hello, $name! You are $age years old."
 }
 ```
+
+</details>
