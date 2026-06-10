@@ -18,6 +18,7 @@ Click the links below to install the required tools for this workshop:
 * `Exercises.md` (Assignments)
 * `Concepts.md` (Theory & Core Principles)
 * `*.ps1` (Solution script)
+* `Slides.pdf` (Presentation deck)
 
 ## 📥 Getting started
 
